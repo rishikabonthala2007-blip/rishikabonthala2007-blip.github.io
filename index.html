@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rishika — CSE AI & ML student portfolio">
+<title>Rishika | CSE • AI & ML • UI/UX</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#050505;--fg:#f5f5f5;--muted:#a2a2a2;--line:#242424;--card:#101010;--white:#fff;--black:#000}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:#fff;color:#000}
+.cursor,.cursor-ring{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.cursor{width:8px;height:8px;background:#fff}
+.cursor-ring{width:34px;height:34px;border:1px solid #fff;transition:width .2s,height .2s}
+header{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(5,5,5,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{max-width:1180px;margin:auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:-1px;font-size:21px}
+.logo span{font-weight:400;color:#999}
+nav{display:flex;gap:25px}
+nav a{font-size:13px;color:#bbb;transition:.25s}
+nav a:hover{color:#fff}
+.menu{display:none;border:1px solid #333;background:#111;color:#fff;padding:8px 11px;border-radius:7px}
+section{max-width:1180px;margin:auto;padding:110px 28px}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid #222;border-radius:50%;right:-170px;top:18%;animation:float 8s ease-in-out infinite}
+.hero:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #1c1c1c;border-radius:50%;right:-50px;top:32%;animation:float 6s ease-in-out infinite reverse}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:#aaa;margin-bottom:22px}
+h1{font-family:"Space Grotesk";font-size:clamp(58px,10vw,126px);line-height:.88;letter-spacing:-7px;max-width:1000px}
+h1 em{font-style:normal;color:#777}
+.hero-copy{margin-top:28px;max-width:610px;color:#aaa;font-size:17px}
+.actions{display:flex;gap:12px;margin-top:30px}
+.btn{padding:13px 20px;border:1px solid #444;border-radius:999px;font-size:13px;transition:.25s}
+.btn.primary{background:#fff;color:#000;border-color:#fff}
+.btn:hover{transform:translateY(-3px);border-color:#fff}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+.section-num{font:600 13px "Space Grotesk";color:#777}
+h2{font:600 clamp(35px,5vw,64px) "Space Grotesk";letter-spacing:-3px;line-height:1}
+.lead{max-width:540px;color:#aaa;font-size:15px}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:70px}
+.about-text{font-size:23px;line-height:1.45;color:#ddd}
+.about-text strong{color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
+.tag{border:1px solid #2b2b2b;border-radius:999px;padding:7px 12px;font-size:12px;color:#aaa}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.skill-card{border:1px solid var(--line);background:var(--card);padding:30px;min-height:190px;transition:.35s;position:relative;overflow:hidden}
+.skill-card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.05),transparent);transform:translateX(-100%);transition:.6s}
+.skill-card:hover{transform:translateY(-6px);border-color:#555}
+.skill-card:hover:before{transform:translateX(100%)}
+.icon{font-family:"Space Grotesk";font-size:12px;color:#777;margin-bottom:25px}
+.skill-card h3{font:600 24px "Space Grotesk";margin-bottom:8px}
+.skill-card p{font-size:13px;color:#999}
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.pills span{font-size:11px;border:1px solid #292929;padding:5px 8px;border-radius:5px;color:#bbb}
+.project{border:1px solid #2b2b2b;background:#0b0b0b;overflow:hidden}
+.project-top{min-height:390px;padding:55px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#111,#070707)}
+.project-label{font-size:11px;letter-spacing:2px;color:#777;text-transform:uppercase}
+.project h3{font:700 clamp(55px,9vw,110px) "Space Grotesk";letter-spacing:-6px;line-height:.8}
+.project h3 span{color:#666}
+.project-bottom{padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:35px;border-top:1px solid #222}
+.project-bottom p{font-size:14px;color:#aaa}
+.project-list{display:flex;flex-wrap:wrap;gap:8px}
+.project-list span{border:1px solid #303030;border-radius:999px;padding:7px 11px;font-size:11px;color:#bbb}
+.journey{position:relative;border-left:1px solid #333;margin-left:10px}
+.step{padding:0 0 55px 40px;position:relative}
+.step:last-child{padding-bottom:0}
+.step:before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#fff;border-radius:50%;box-shadow:0 0 0 5px #050505}
+.step small{color:#666;font-size:11px;letter-spacing:2px}
+.step h3{font:600 27px "Space Grotesk";margin:8px 0}
+.step p{color:#999;max-width:620px;font-size:14px}
+.contact{min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.contact h2{font-size:clamp(50px,8vw,105px);max-width:900px}
+.contact-mail{font:600 clamp(18px,3vw,30px) "Space Grotesk";margin-top:35px;display:inline-block;border-bottom:1px solid #555;padding-bottom:5px}
+footer{border-top:1px solid #222;padding:24px 28px;color:#666;font-size:11px}
+.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+@keyframes float{50%{transform:translateY(-22px) rotate(8deg)}}
+@media(max-width:760px){
+ nav{display:none}.menu{display:block}
+ .nav{padding:15px 20px}section{padding:90px 20px}
+ h1{letter-spacing:-4px;font-size:clamp(55px,18vw,90px)}
+ .about-grid,.project-bottom{grid-template-columns:1fr;gap:30px}
+ .skills-grid{grid-template-columns:1fr}
+ .project-top{min-height:300px;padding:35px}
+ .project h3{letter-spacing:-4px}
+ .cursor,.cursor-ring{display:none}
+ .footer-inner{flex-direction:column;gap:7px}
+}
+</style>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-ring"></div>
+
+<header><div class="nav">
+<a class="logo" href="#home">RISHIKA<span>.</span></a>
+<nav>
+<a href="#about">About</a><a href="#skills">Skills</a><a href="#project">Project</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+</nav>
+<button class="menu" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'">Menu</button>
+</div></header>
+
+<main>
+<section class="hero" id="home">
+<div class="reveal">
+<div class="eyebrow">CSE • AI & ML • UI/UX</div>
+<h1>Hi, I'm<br><em>Rishika.</em></h1>
+<p class="hero-copy">A Computer Science student exploring artificial intelligence, machine learning, web development and thoughtful digital design — building ideas through technology, design and continuous learning.</p>
+<div class="actions"><a class="btn primary" href="#project">View My Work</a><a class="btn" href="#skills">Explore Skills</a></div>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<div class="section-head"><div><div class="section-num">01 / ABOUT</div><h2>About me</h2></div><p class="lead">Curious about how technology works and how people experience it.</p></div>
+<div class="about-grid">
+<div class="about-text">I am a <strong>Computer Science and Engineering student specializing in Artificial Intelligence & Machine Learning.</strong> I enjoy combining technical problem-solving with creativity, especially in UI/UX and web experiences.</div>
+<div><p class="lead">My practical learning has introduced me to wireframing, prototyping, usability evaluation, user testing and modern frontend workflows. I like learning by building, testing and improving.</p><div class="tags"><span class="tag">AI & ML</span><span class="tag">UI/UX</span><span class="tag">Web Development</span><span class="tag">Problem Solving</span><span class="tag">Continuous Learning</span></div></div>
+</div>
+</section>
+
+<section id="skills" class="reveal">
+<div class="section-head"><div><div class="section-num">02 / SKILLS</div><h2>What I know</h2></div><p class="lead">A growing toolkit built through academics and practical projects.</p></div>
+<div class="skills-grid">
+<div class="skill-card"><div class="icon">01 — TECH</div><h3>AI & Machine Learning</h3><p>Foundational knowledge of machine learning concepts and practical lab work.</p><div class="pills"><span>Python</span><span>Machine Learning</span><span>Data Concepts</span></div></div>
+<div class="skill-card"><div class="icon">02 — CODE</div><h3>Programming</h3><p>Programming fundamentals and problem-solving through academic work.</p><div class="pills"><span>C</span><span>Python</span></div></div>
+<div class="skill-card"><div class="icon">03 — DESIGN</div><h3>UI / UX Design</h3><p>Designing interfaces with attention to hierarchy, usability and user flow.</p><div class="pills"><span>Figma</span><span>Adobe XD</span><span>Canva</span><span>Wireframes</span><span>Prototypes</span></div></div>
+<div class="skill-card"><div class="icon">04 — BUILD</div><h3>Web Development</h3><p>Building responsive frontend experiences and interactive interfaces.</p><div class="pills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Vite</span></div></div>
+<div class="skill-card"><div class="icon">05 — TEST</div><h3>UX Evaluation</h3><p>Understanding usability through structured evaluation and user feedback.</p><div class="pills"><span>User Testing</span><span>Heuristic Evaluation</span><span>Usability</span></div></div>
+<div class="skill-card"><div class="icon">06 — TOOLS</div><h3>Development Tools</h3><p>Comfortable with common tools used to build, manage and document projects.</p><div class="pills"><span>Git</span><span>GitHub</span><span>npm</span><span>VS Code</span></div></div>
+</div>
+</section>
+
+<section id="project" class="reveal">
+<div class="section-head"><div><div class="section-num">03 / FEATURED WORK</div><h2>Selected project</h2></div></div>
+<div class="project">
+<div class="project-top"><div class="project-label">Website UI Redesign</div><h3>Quick<span>Bite</span></h3></div>
+<div class="project-bottom">
+<p>A modern food-ordering website redesign focused on a clearer interface, smoother navigation and a more engaging user experience.</p>
+<div class="project-list"><span>Responsive UI</span><span>Restaurant Browsing</span><span>Search</span><span>Cart</span><span>Checkout</span><span>Animations</span><span>User Testing</span></div>
+</div>
+</div>
+</section>
+
+<section id="journey" class="reveal">
+<div class="section-head"><div><div class="section-num">04 / LEARNING JOURNEY</div><h2>Learn. Build. Improve.</h2></div></div>
+<div class="journey">
+<div class="step"><small>01 — LEARN</small><h3>Understand the fundamentals</h3><p>Build a foundation in programming, AI/ML, web technologies and design principles.</p></div>
+<div class="step"><small>02 — DESIGN</small><h3>Turn ideas into interfaces</h3><p>Explore user flows, wireframes, prototypes and visual hierarchy using design tools.</p></div>
+<div class="step"><small>03 — BUILD</small><h3>Create practical projects</h3><p>Translate concepts into responsive and interactive frontend experiences.</p></div>
+<div class="step"><small>04 — TEST</small><h3>Listen to the user</h3><p>Use usability evaluation, heuristic thinking and user feedback to identify improvements.</p></div>
+<div class="step"><small>05 — IMPROVE</small><h3>Keep growing</h3><p>Iterate on ideas, learn new tools and strengthen both technical and creative skills.</p></div>
+</div>
+</section>
+
+<section id="contact" class="contact reveal">
+<div class="section-num">05 / CONTACT</div>
+<h2>Let's connect<br><em>and build.</em></h2>
+<a class="contact-mail" href="mailto:rishikabonthala2007@gmail.com">rishikabonthala2007@gmail.com ↗</a>
+<div class="actions"><a class="btn" href="#" onclick="alert('Add your GitHub profile link here.');return false;">GitHub</a><a class="btn" href="#" onclick="alert('Add your LinkedIn profile link here.');return false;">LinkedIn</a></div>
+</section>
+</main>
+
+<footer><div class="footer-inner"><span>© 2026 Rishika</span><span>CSE • AI & ML • UI/UX</span></div></footer>
+
+<script>
+const cursor=document.querySelector('.cursor'),ring=document.querySelector('.cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)}loop();
+document.querySelectorAll('a,.btn,.skill-card').forEach(el=>el.addEventListener('mouseenter',()=>{ring.style.width='48px';ring.style.height='48px'}));
+document.querySelectorAll('a,.btn,.skill-card').forEach(el=>el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px'}));
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
